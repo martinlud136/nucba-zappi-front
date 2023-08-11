@@ -57,3 +57,7 @@ Dentro de la carpeta redux/user podemos encontrar los dos slices que utiliza red
 
 setCurrentUser para setear toda la información del usuario
 setVerified para actualizar el campo verified del currentUser en true. 
+
+el slice toggleMenuHidden es necesario para que se abra el modal del home, NO ES NECESARIO DE EXPLICAR.
+
+
