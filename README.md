@@ -70,7 +70,7 @@ Luego, en TODAS las PAGES, exceptuando en la llamada `PageNotFound` , manejaremo
 Issue, ejecutamos createIssue. \
 Login, ejecutamos loginUser.\
 Register, ejecutamos createUser.\
-Validate, ejecutamos verifyUser.\
+Validate, ejecutamos verifyUser.
 
 ### Login, Register y Validate
 
