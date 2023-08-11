@@ -67,10 +67,10 @@ Además, en el `Hero.jsx` usamos al currentUser para validar más contenido.
 
 Luego, en TODAS las PAGES, exceptuando en la llamada `PageNotFound` , manejaremos peticiones a nuestra API:
 
-Issue, ejecutamos createIssue.
-Login, ejecutamos loginUser.
-Register, ejecutamos createUser.
-Validate, ejecutamos verifyUser.
+Issue, ejecutamos createIssue. \
+Login, ejecutamos loginUser.\
+Register, ejecutamos createUser.\
+Validate, ejecutamos verifyUser.\
 
 ### Login, Register y Validate
 
