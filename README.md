@@ -1,121 +1,59 @@
 # Nucba Zappi 🍕
 
-En este repositorio se encuentra el proyecto final del módulo de Front End Avanzado en Nucba.
-Este mismo es una aplicación realizada con todas las tecnologías vistas durante la cursada, sumando el agregado que el backend está gestionado mediante una API propia, sirviendo como introducción al siguiente módulo.
+En este repositorio se encuentra el proyecto final del módulo de Backend, integrado con un Front simplificado. Este mismo no tiene grande funcionalidades, ya que su principal objetivo es mostrar como interactuamos con nuestra API desde un entorno que no sea el POSTMAN.
 
-Pueden ver la versión final funcionando en producción ingresando a : ACTUALIZAR LINK
+Debemos recordar que no todos los alumnos cursaron el módulo de FrontEnd, y es más importante darle relevancia a la manera de conectarnos con nuestra API y debugear todo lo necesario para comprenderlo. Los estilos y estructuras del FrontEnd quedan en segundo plano, Y NO DEBEN SER CODEADAS.
 
-<br>
+Archivos a tener en cuenta: 
 
-## Nucba Zappi
+En utils/constants.js vamos a encontrar tres variables de entorno importantes a usar ( estas deben usarse en un archivo .env, pero se muestran acá para fines prácticos )
 
-![App Screenshot](https://res.cloudinary.com/dcatzxqqf/image/upload/v1659477298/coding/NucbaZappi/zappi_axqxzb.png)
+export const BASE_URL = 'http://localhost:8080'; ( acá debemos reemplazar por la url de nuestra API deployada)
 
-El proyecto consta de 6 clases para realizarse. Cada una de las mismas están documentadas en el repositorio para desarrollar esas funcionalidades.
+Estas son las mismas claves que declaramos en la API para los roles 
+export const ADMIN = '50yun4dm1n';
+export const USER = '50yunu53r';
 
-En este proyecto trabajaremos con una API propia, creada especialmente para este trabajo. Cabe destacar que el mentor no deberá realizar ningun trabajo en el backend, solo interactuar con el mismo desde el front.
-En el read me de las últimas dos clases (y, por ende, las últimas dos ramas con las que trabajaremos), encontraremos la informacion necesaria de la API que consumiremos.
-El rol del backend es crear las colecciones de los usuarios y las órdenes para ser consumidas. Además realizaremos el login mediante nuestro backend.
+Luego en axios-issue.js y en axios-user.js, encontramos las peticiones a nuestra API (del tipo POST/PATCH), enviando todo lo que requerimos en los bodys y headers del POSTMAN.
 
-<br>
+En el componente Navbar.jsx, vamos a encontrar que nos traemos del STORE de Redux, a nuestro currentUser, con eso mismo validamos que renderizar. 
 
-## Temario del proyecto
+ {currentUser?.rol === ADMIN ? (
+            <Link to='/issue'>Crear Issue</Link>
+          ) : (
+            <span>No podes crear un Issue</span>
+)}
 
-Clase 15
+Al igual que en el hero, usamos al currentUser para validar más contenido.
 
-- Presentación del proyecto
-- Starter ||
-  Rama: ACTUALIZAR LINK
-- Dynamic Data ||
-  Rama: ACTUALIZAR LINK
+{currentUser?.verified ? (
+          <h1 className='title'>Bienvenido Usuario Verificado</h1>
+        ) : (
+          <div>
+            <h1 className='title'>Tenes que validar tu cuenta</h1>
+            <HeroFormStyled>
+              <Button
+                onClick={() => {
+                  navigate('/validate');
+                }}
+                radius='10'
+              >
+                Validar usuario
+              </Button>
+            </HeroFormStyled>
+          </div>
+)}
 
-Clase 16
+En cuanto a las PAGES, menos en la PageNotFound, luego en todas manejaremos peticiones a nuestra API.
 
-- Creación del store y primeros slices
-- Consumo de productos y categorias con Redux Toolkit
-- Sección aleatoria de recomendados
+Issue, ejecutamos  createIssue.
+Login, ejecutamos  loginUser.
+Register, ejecutamos createUser.
+Validate, ejecutamos verifyUser. 
 
-Rama: ACTUALIZAR LINK
+Tanto en LOGIN, REGISTER, Y VALIDATE ejecutamos 3 dispatch, estos mismos sirven para actualizar el estado del usuario en nuestro STORE de la aplicación en el Frontend. 
 
-Clase 17
+Dentro de la carpeta redux/user podemos encontrar los dos slices que utiliza redux para actualizar el estado del usuario. 
 
-- Filtro para buscar la categoria desde el search ubicado en el hero.
-- Filtrar según la categoria seleccionada en la sección de categorias.
-- Paginación de productos.
-
-Rama: ACTUALIZAR LINK
-
-Clase 18
-
-- Lógica del carrito (persistida en Redux Persist)
-- Checkout con sus validaciones en Formik
-- Renderizado dinámico del pedido en el Checkout
-
-Rama: ACTUALIZAR LINK
-
-Clase 19
-
-- Muestra de la API con la que haremos login
-- Registro con Email & Password
-- Login con Email & Password
-
-Rama: ACTUALIZAR LINK
-
-Clase 20
-
-- Creación y consumo de órdenes
-- Vista dinámica de cada orden con el desglose de la misma
-
-Rama: ACTUALIZAR LINK
-
-<br>
-
-## Utilización
-
-Debe clonar este proyecto para tenerlo como referencia.
-
-```bash
-  git clone ACTUALIZAR LINK
-```
-
-En segundo paso, se mueve a la rama starter
-
-```bash
-  git checkout starter
-```
-
-Ahora es momento de copiar esos archivos y pegarlos en una carpeta propia, que será la subida al repositorio en la cuenta del mentor.
-
-Recordamos, es necesario instalar todas las dependencias requeridas para que funcione.
-
-```bash
-  npm install
-```
-
-Por último, iniciar el proyecto con el siguiente comando:
-
-```bash
-  npm run start
-```
-
-<br>
-
-## Estructura del repo
-
-En este repo, van a encontrar distintas ramas que conforman a la construcción de la aplicación.
-
-En la carpeta clonada de aquí, listamos todas las ramas con el siguiente comando:
-
-```bash
-  git branch -a
-```
-
-Una vez listadas, nos movemos entre ramas para acceder a la clase requerida dependiendo donde nos encontramos:
-Ejemplo Clase 2: Antes de iniciar la clase, nos movemos a la rama feature/redux, y observamos el código para luego ir desarrollandolo en el repo de cada uno.
-
-```bash
-  git checkout feature/redux
-```
-
-Luego revisamos el readme de cada rama para saber los pasos a seguir en cada clase.
-# Nucbazappi-Front
+setCurrentUser para setear toda la información del usuario
+setVerified para actualizar el campo verified del currentUser en true. 
