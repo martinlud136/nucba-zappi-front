@@ -18,14 +18,18 @@ Luego en axios-issue.js y en axios-user.js, encontramos las peticiones a nuestra
 
 En el componente Navbar.jsx, vamos a encontrar que nos traemos del STORE de Redux, a nuestro currentUser, con eso mismo validamos que renderizar. 
 
+
+```
  {currentUser?.rol === ADMIN ? (
             <Link to='/issue'>Crear Issue</Link>
           ) : (
             <span>No podes crear un Issue</span>
 )}
+```
 
 Al igual que en el hero, usamos al currentUser para validar más contenido.
 
+```
 {currentUser?.verified ? (
           <h1 className='title'>Bienvenido Usuario Verificado</h1>
         ) : (
@@ -43,6 +47,8 @@ Al igual que en el hero, usamos al currentUser para validar más contenido.
             </HeroFormStyled>
           </div>
 )}
+
+```
 
 En cuanto a las PAGES, menos en la PageNotFound, luego en todas manejaremos peticiones a nuestra API.
 
