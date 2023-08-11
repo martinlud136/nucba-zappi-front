@@ -9,9 +9,9 @@ Importante: Nos parece importante recordar que algunos alumnos solo se anotan pa
 
 ## Archivos importantes
 
-### utils.js y constants.js
+### utils y constants
 
-En los archivos `utils.js` y `constants.js` encontraremos 3 variables de entorno que serán importantes para el desarrollo del proyecto.
+En las carpetas `utils` y `constants` encontraremos 3 variables de entorno que serán importantes para el desarrollo del proyecto.
 Estas deben utilizarse en el archivo `.env`.
 
 Las dejamos especificadas a continuación:
