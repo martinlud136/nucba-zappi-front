@@ -1,12 +1,5 @@
 # Nucba Zappi 🍕
 
-## Descripción y objetivos
-
-En este repositorio encontrarán un proyecto simple de Front-End realizado con React con el cual realizaremos la integración con nuestra API de Nucba Zappi.
-El principal objetivo de esta app es tener un Front mediante el cual podamos interactuar con la API que realizamos en el módulo de Backend desde un entorno que no sea Postman.
-
-Importante: Nos parece importante recordar que algunos alumnos solo se anotan para realizar el módulo de Backend. Con lo cual, si bien realizamos la conexión entre ambas partes en el módulo de React,lo importante es darle relevancia a la manera de conectarnos con nuestra API y Debbugear todo lo necesario para que se comprenda como se realiza la conexión entre un back y un front , en especial para aquellos que no vieron como hacerlo. Todo lo relacionado a estilos y estructuras del Front quedarán en segundo plano y no deben ser codeadas, ya que para eso esta el módulo de Front-End.
-
 ## Archivos importantes
 
 ### utils y constants
@@ -81,4 +74,3 @@ Dentro de la carpeta redux/user podemos encontrar los dos slices que utiliza red
 setCurrentUser para setear toda la información del usuario
 setVerified para actualizar el campo verified del currentUser en true.
 
-Nota: el slice toggleMenuHidden es necesario para que se abra el modal del home, NO ES NECESARIO DE EXPLICAR.
